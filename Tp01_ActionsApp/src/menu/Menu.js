@@ -5,11 +5,11 @@ import OptionMenu from './OptionMenu'
 /**
  * Composant Menu.
  */
-const Menu = () => (
+const Menu = ({changeShowMode, showMode}) => (
     <View style={styles.menu}>
-        <OptionMenu />
-        <OptionMenu />
-        <OptionMenu  />
+        <OptionMenu nom="Toutes" changeShowMode={()=> changeShowMode('all')} selected={showMode=='all'}/>
+        <OptionMenu nom="Actives" changeShowMode={()=> changeShowMode('actives')} selected={showMode=='actives'}/>
+        <OptionMenu nom="Terminés" changeShowMode={()=> changeShowMode('finished')} selected={showMode=='finished'}/>
     </View>
 )
 

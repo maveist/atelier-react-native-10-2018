@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Button } from 'react-native'
 import BoutonAction from './BoutonAction'
 
 /**
@@ -7,13 +7,34 @@ import BoutonAction from './BoutonAction'
  *
  * TODO modifier le code pour afficher le titre de l'action et les boutons associés.
  */
-const UneAction = () => (
+
+
+renderButtonTerminer = (id, action, finirAction) => {
+    if(!action.done){
+            
+        return (<Button
+            color="#00a600"
+            title="Terminer"
+            onPress={() => finirAction(id)}
+        />)
+    }
+}
+
+const UneAction = ({id, action, supprimerAction, finirAction}) => (
+    
     <View style={styles.conteneurUneAction}>
         <Text style={styles.texteUneAction}>
-            Ici bientôt le titre de l'action
+            {`${action.name}`}
         </Text>
         <View style={styles.boutons}>
+            {/* <BoutonAction nom="Terminer" id={id} supprimerAction={(id) => supprimerAction(id)}/>
+            <BoutonAction nom="Supprimer" id={id} supprimerAction={(id) => supprimerAction(id)}/> */}
+            {renderButtonTerminer(id, action, finirAction)}
 
+            <Button title="Supprimer"
+            color="#770101"
+            onPress={() => supprimerAction(id)}
+            />
         </View>
     </View>
 )

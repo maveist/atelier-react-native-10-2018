@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Header } from 'react-native'
 
 /**
  * Le composant Entete représente le titre de l'application.
@@ -13,13 +13,15 @@ import { StyleSheet, Text, View } from 'react-native'
  * TODO 3. Appliquer le style "texteEntete" à l'élément <Text>
  */
 export default Entete = () => (
-    <View>
-        <Text>Entete</Text>
+    
+    <View style={styles.entete}>
+        <Text style={styles.texteEntete}>Action!</Text>
     </View>
 )
 
 const styles = StyleSheet.create({
     // style à appliquer à l'élément <View>
+
     entete: {
         marginTop: 80
     },
